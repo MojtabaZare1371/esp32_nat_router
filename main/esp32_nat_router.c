@@ -427,6 +427,9 @@ void wifi_init(const char* ssid, const char* ent_username, const char* ent_ident
 	    strlcpy((char*)ap_config.sta.password, ap_passwd, sizeof(ap_config.sta.password));
     }
 
+    //esp_wifi_set_protocol( ESP_IF_WIFI_STA, WIFI_PROTOCOL_LR );
+    esp_wifi_set_protocol( ESP_IF_WIFI_AP, WIFI_PROTOCOL_LR);
+
     if (strlen(ssid) > 0) {
         ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_APSTA) );
 
